@@ -4,7 +4,6 @@ import { Modal, Container, Row, Col, Card, Image } from "react-bootstrap";
 
 export default function MovieCard({ movie }) {
   const [lgShow, setLgShow] = useState(false);
-  console.log(movie);
   return (
     <>
       <div
@@ -25,22 +24,24 @@ export default function MovieCard({ movie }) {
       >
         <Modal.Body className="p-0">
           <div style={{ padding:"5px", backgroundImage:`url(${movie.backdrop})`,backgroundRepeat:"no-repeat",color:"white" }}>
-          <Modal.Header closeButton>
+          <Modal.Header closeButton className="text-white">
             <Modal.Title id="example-modal-sizes-title-lg">
               {movie.title}
             </Modal.Title>
           </Modal.Header>
+          <br></br>
             <Container>
               <Row>
                 <Col sm={12} md={6}>
                   <img src={movie.poster} className="w-100 mx-aut0"></img>
                 </Col>
                 <Col sm={12} md={6}>
-                  {movie.plot}
+                  <p className="bg-dark p-5 text-center rounded">{movie.plot}</p>
                 </Col>
               </Row>
             </Container>
 
+        <br></br>
           </div>
         </Modal.Body>
       </Modal>

@@ -6,5 +6,15 @@
   cursor: pointer;
 }
 
+.bk-img{
+  z-index:-500;
+  opacity: 0.6;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 500px;
+  background: #282c34;
+}
 
 
