@@ -1,2 +1,3 @@
-
-// Only load movies on scrolling down
+// Add comment section
+// Add ablity to comment 
+// Add play button that opens link on same page

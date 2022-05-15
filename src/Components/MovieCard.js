@@ -30,6 +30,7 @@ export default function MovieCard({ movie }) {
             <Container>
               <Row>
                 <Col sm={12} md={6}>
+                  <h1>Test change</h1>
                   <img src={movie.poster} alt="" className="w-100 mx-auto"></img>
                 </Col>
                 <Col sm={12} md={6}>
