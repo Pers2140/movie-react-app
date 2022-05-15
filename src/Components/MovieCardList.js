@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 import { Container, Row } from "react-bootstrap";
+import axios from "axios";
 
 export default function MovieCardList() {
   const [movies, setMovies] = useState([]);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [reqMovies, setReqMovies] = useState(4);
+  const [reqMovies, setReqMovies] = useState(6);
 
  
 
   useEffect(() => {
-    
-    const handleScroll = () => {
-      const position = window.pageYOffset;
-      setScrollPosition(position);
-      setReqMovies(reqMovies+1)
+    const handleScroll = (e) => {
+      if (
+        window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+        e.target.documentElement.scrollHeight - 5
+      ){
+        setReqMovies(reqMovies+6)
+      }
     };
   
     const getMovies = (m) => {
-      fetch(`https://movies-nodeapi.herokuapp.com/movies/?page=1&limit=${m}`)
-        .then((res) => res.json())
-        .then((data) => setMovies(data));
+      axios(`https://movies-nodeapi.herokuapp.com/movies/?page=1&limit=${m}`)
+        .then(({data}) => setMovies(data));
     };
+    
     window.addEventListener("scroll", handleScroll);
     getMovies(reqMovies);
     return () => {};
