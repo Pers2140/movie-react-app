@@ -1,5 +1,5 @@
 .App {
-  background-color: #282c34;
+  background: #282c34;
 }
 
 .movie-card{
@@ -16,5 +16,19 @@
   min-height: 500px;
   background: #282c34;
 }
+.bar1{
+  position:fixed;
+  top:0px;
+  height:0px;
+  width:100%;
+  box-shadow: 0 0 18px 18px #282c34;
+}
+.bar2{
+  position:fixed;
+  bottom:0px;
+  background: #282c34;
+  height:0px;
+  width: 100%;
+  box-shadow: 0 0 18px 18px #282c34;
 
-
+}

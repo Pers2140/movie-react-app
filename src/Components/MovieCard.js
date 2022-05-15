@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Modal, Container, Row, Col, Card, Image } from "react-bootstrap";
+import { Modal, Container, Row, Col, Card } from "react-bootstrap";
 
 export default function MovieCard({ movie }) {
   const [lgShow, setLgShow] = useState(false);
@@ -10,10 +10,7 @@ export default function MovieCard({ movie }) {
         className="col-sm-12 col-md-6 col-lg-4 movie-card"
         onClick={() => setLgShow(true)}
       >
-        <Card>
-          <Card.Img variant="top" src={movie.poster} />
-          <Card.Body></Card.Body>
-        </Card>
+          <Card.Img className="p-0 m-0" src={movie.poster} />
       </div>
 
       <Modal
@@ -33,14 +30,13 @@ export default function MovieCard({ movie }) {
             <Container>
               <Row>
                 <Col sm={12} md={6}>
-                  <img src={movie.poster} className="w-100 mx-aut0"></img>
+                  <img src={movie.poster} alt="" className="w-100 mx-auto"></img>
                 </Col>
                 <Col sm={12} md={6}>
                   <p className="bg-dark p-5 text-center rounded">{movie.plot}</p>
                 </Col>
               </Row>
             </Container>
-
         <br></br>
           </div>
         </Modal.Body>

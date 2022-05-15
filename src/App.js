@@ -7,7 +7,7 @@ import ThemeProvider from 'react-bootstrap/ThemeProvider'
 function App() {
   return (
     <ThemeProvider>
-    <div className=".bg-dark">
+    <div className="bg-dark">
       <MovieCardList />
     </div>
     </ThemeProvider>
