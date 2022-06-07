@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Modal, Container, Row, Col, Card } from "react-bootstrap";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, setMovie }) {
   const [lgShow, setLgShow] = useState(false);
   return (
     <>
@@ -20,7 +20,7 @@ export default function MovieCard({ movie }) {
         aria-labelledby="example-modal-sizes-title-lg"
         className="modal fade"
       >
-        <Modal.Body className="p-0" style={{"height":"500px"}}>
+        <Modal.Body className="p-0" id="popup" style={{"height":"500px"}}>
           <div style={{ padding:"5px", backgroundImage:`url(${movie.backdrop})`,backgroundRepeat:"no-repeat",color:"white" }}>
           <Modal.Header closeButton className="text-white">
             <Modal.Title id="example-modal-sizes-title-lg">
@@ -32,7 +32,7 @@ export default function MovieCard({ movie }) {
               <Row>
                 <Col sm={12} md={4}>
                   <div className="img-box position-relative">
-                  <a  href={movie.view}><img className="movie-img" src="https://cdn-icons-png.flaticon.com/512/482/482059.png" alt="" /></a>
+                  <img onClick={() => {setMovie(movie.view)}} className="play-button" src="https://cdn-icons-png.flaticon.com/512/482/482059.png" alt="" />
                   <img src={movie.poster} alt="" className="w-100 mx-auto "></img>
                   </div>
                   <br></br>

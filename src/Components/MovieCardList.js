@@ -1,14 +1,28 @@
 import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
+import Player from "./Player";
 import { Container, Row } from "react-bootstrap";
 import axios from "axios";
 
 export default function MovieCardList() {
+
   const [movies, setMovies] = useState([]);
   const [reqMovies, setReqMovies] = useState(6);
+  
+  // Controlling Movie list and player display property
+  let moviesDisplay = {display:"block"}
+  let playerDisplay = {display:"none"}
+  
+  // by default player display set to none otherwise change
+  const [currentMovie,setcurrentMovie] = useState('default')
+  if (currentMovie != 'default'){
+    moviesDisplay = {display:"none"}
+    playerDisplay = {display:"block"}
+    // hide Model on player display
+    document.getElementById('popup').style.display ="none"
+  }
 
- 
-
+  // On scroll add more movies
   useEffect(() => {
     const handleScroll = (e) => {
       if (
@@ -31,17 +45,16 @@ export default function MovieCardList() {
 
   return (
     <>
-        <div className="bar1"></div>
-      <Container className="blur">
+      <div className="blurBar1"></div>
+      <Player  style={playerDisplay} moviesrc={currentMovie} setMovie={setcurrentMovie}/>
+      <Container className="blur" style={moviesDisplay}>
         <Row className="align-center">
-          {/* <MovieCard movie={bum[0]} /> */}
-
           {movies.map((movie) => {
-            return <MovieCard movie={movie} key={movie._id}/>;
+            return <MovieCard  movie={movie} setMovie={setcurrentMovie} key={movie._id}/>;
           })}
         </Row>
       </Container>
-        <div className="bar2"></div>
+        <div className="blurBar2"></div>
     </>
   );
 }

@@ -1,3 +1,3 @@
-// Add comment section
+
 // Add ablity to comment 
-// Add play button that opens link on same page
+// Add play button that opens drop down player on same page
