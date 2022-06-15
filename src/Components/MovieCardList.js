@@ -7,7 +7,7 @@ import axios from "axios";
 export default function MovieCardList() {
 
   const [movies, setMovies] = useState([]);
-  const [reqMovies, setReqMovies] = useState(6);
+  const [reqMovies, setReqMovies] = useState(12);
   
   // Controlling Movie list and player display property
   let moviesDisplay = {display:"block"}
@@ -15,7 +15,7 @@ export default function MovieCardList() {
   
   // by default player display set to none otherwise change
   const [currentMovie,setcurrentMovie] = useState('default')
-  if (currentMovie != 'default'){
+  if (currentMovie !== 'default'){
     moviesDisplay = {display:"none"}
     playerDisplay = {display:"block"}
     // hide Model on player display

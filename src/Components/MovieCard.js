@@ -1,9 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { Modal, Container, Row, Col, Card } from "react-bootstrap";
+import { Modal, Container, Row, Col, Card} from "react-bootstrap";
+import CommentSection from "./CommentSection"
 
 export default function MovieCard({ movie, setMovie }) {
   const [lgShow, setLgShow] = useState(false);
+
+
   return (
     <>
       <div
@@ -41,15 +44,7 @@ export default function MovieCard({ movie, setMovie }) {
                 <Col sm={12} md={8}>
                   <p className="bg-dark p-5 text-center rounded">{movie.plot}</p>
                   <div className="overflow-auto text-black" style={{"maxHeight":"500px"}}>
-                  {movie.comments.map((comment) => {
-                    return <Card key={comment.user+comment.comment} className="m-2">
-                      <div className="card-body p-5">
-                        <h5 className="card-title">{comment.user}</h5>
-                        <p className="card-text">{comment.comment}</p>
-                        <p className="card-text">{"⭐".repeat(comment.rating)}</p>
-                      </div>
-                    </Card>;
-                  })}
+                  <CommentSection movieComments = {movie.comments} movieTitle = {movie.title}/>
                   </div>
                 </Col>
                 
